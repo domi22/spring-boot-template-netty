@@ -20,12 +20,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-
-        <mybatis.spring>1.2.0</mybatis.spring>
-        <mysql.connector>8.0.11</mysql.connector>
-        <hikariCP>2.7.9</hikariCP>
-        <fast.json>1.2.41</fast.json>
         <commons.lang3>3.8</commons.lang3>
     </properties>
 
@@ -44,7 +38,8 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!--==================== springboot2.0 - mysql - HikariCP连接池(默认) ========================-->
+
+
     </dependencies>
 
     <build>
