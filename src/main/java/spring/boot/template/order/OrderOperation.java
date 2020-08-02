@@ -8,6 +8,9 @@ public class OrderOperation extends Operation {
     private int tableId;
     private String dish;
 
+    public OrderOperation() {
+    }
+
     public OrderOperation(int tableId, String dish) {
         this.tableId = tableId;
         this.dish = dish;

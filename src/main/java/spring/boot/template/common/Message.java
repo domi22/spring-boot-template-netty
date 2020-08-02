@@ -3,6 +3,8 @@ package spring.boot.template.common;
 import com.alibaba.fastjson.JSON;
 import io.netty.buffer.ByteBuf;
 
+import java.nio.charset.Charset;
+
 public abstract class Message<T extends MessageBody> {
 
     private MessageHeader messageHeader;
@@ -33,7 +35,7 @@ public abstract class Message<T extends MessageBody> {
         messageHeader.setStreamId(streamId);
         this.messageHeader = messageHeader;
 
-        String str = msg.toString();
+        String str = msg.toString(Charset.forName("UTF-8"));
         Class<T> bodyClass = getMessageBodyDecodeClass(opCode);
         T body = JSON.parseObject(str, bodyClass);
         this.messageBody = body;

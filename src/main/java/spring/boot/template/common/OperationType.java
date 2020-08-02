@@ -11,7 +11,7 @@ public enum OperationType {
 
     AUTH(1, AuthOperation.class, AuthOperationResult.class),
     KEEPALIVE(2, KeepaliveOperation.class, KeepaliveOperationResult.class),
-    ORDER(1, OrderOperation.class, OrderOperationResult.class);
+    ORDER(3, OrderOperation.class, OrderOperationResult.class);
 
     private int opCode;
     private Class<? extends Operation> operationClazz;
@@ -48,7 +48,7 @@ public enum OperationType {
     public static OperationType fromOperation(Operation operation) {
         OperationType[] values = OperationType.values();
         for (OperationType value : values) {
-            if (operation.equals(value.operationClazz)) {
+            if (value.operationClazz.equals(operation.getClass())) {
                 return value;
             }
         }
