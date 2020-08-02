@@ -19,7 +19,7 @@ public class OrderOperation extends Operation {
 
     @Override
     public OperationResult execute() {
-        OrderOperationResult orderOperationResult = new OrderOperationResult(tableId, dish, true);
+        OrderOperationResult orderOperationResult = new OrderOperationResult(5, "OrderOperation-response", true);
         return orderOperationResult;
     }
 }
