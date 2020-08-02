@@ -19,7 +19,14 @@ public class OrderServerProcessHandler extends SimpleChannelInboundHandler<Reque
         responseMessage.setMessageHeader(requestMessage.getMessageHeader());
         responseMessage.setMessageBody(operationResult);
 
+        //发送给pepline中的下一个handler
         channelHandlerContext.writeAndFlush(responseMessage);
-        //SimpleChannelInboundHandler 可以帮我们自动释放ByteBuf内存（可能是堆，也可能是堆外内存）
+
+        //发送到pepline中去，消息会沿着所有的handler走一遍
+        //channelHandlerContext.channel().writeAndFlush(responseMessage);
+
+        //值是把消息发送到队列，并没有发送
+        //channelHandlerContext.write(responseMessage);
+        //SimpleChannelInboundHandler 可以帮我们自动释放ByteBuf内存（可能是堆，也可能是堆外内存），如果是其他的handler则需要手动释放
     }
 }
